@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { AngularMaterialModule } from '../../modules/angular-material/angular-material.module';
+import { timestamp } from 'rxjs';
 
 @Component({
-  selector: 'app-footer',
+  selector: 'app-trends',
   standalone: true,
   imports: [AngularMaterialModule],
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css',
+  templateUrl: './trends.component.html',
+  styleUrl: './trends.component.css',
 })
-export class FooterComponent {}
+export class TrendsComponent {
+  timestamp = Date.now();
+}

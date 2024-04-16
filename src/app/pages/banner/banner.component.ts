@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { BrandsComponent } from '../brands/brands.component';
+import { TrendsComponent } from '../trends/trends.component';
 
 @Component({
   selector: 'app-banner',
   standalone: true,
-  imports: [],
+  imports: [BrandsComponent, TrendsComponent],
   templateUrl: './banner.component.html',
   styleUrl: './banner.component.css',
 })
