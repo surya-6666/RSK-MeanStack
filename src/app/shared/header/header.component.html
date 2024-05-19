@@ -7,7 +7,23 @@
     >
     <span>AboutUs</span>
     <span>ContactUs</span>
-    <span><button mat-stroked-button color="warn">Login</button></span>
+    @if (!user) {
+    <span
+      ><button
+        mat-stroked-button
+        color="warn"
+        [routerLink]="['/login']"
+        routerLinkActive="router-link-active"
+      >
+        Login
+      </button></span
+    >
+
+    } @else {
+    <span [matMenuTriggerFor]="userMenu" style="cursor: pointer"
+      >Hi<strong class="text-danger fw-bold"> {{ user }}</strong></span
+    >
+    }
   </div>
 </mat-toolbar>
 <mat-toolbar class="header bg-danger">
@@ -37,3 +53,7 @@
     >
   </span>
 </mat-toolbar>
+<mat-menu #userMenu>
+  <li mat-menu-item>Profile</li>
+  <li mat-menu-item (click)="onExit()">Exit</li>
+</mat-menu>

@@ -1,0 +1,124 @@
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    <div
+      class="col-md-6 d-flex align-items-center justify-content-center bg-light"
+    >
+      <img
+        src="../../../assets/banner/loginBanner.png"
+        class="img-fluid w-100"
+      />
+    </div>
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+      <div class="card w-100">
+        <div class="card-header bg-danger">
+          <h6 class="card-title text-center text-white">RegistrationForm</h6>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <form [formGroup]="registerForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>Name:</mat-label>
+                      <input matInput type="text" formControlName="name" />
+                      @if(registerForm.controls.name.errors?.required){
+                      <mat-error> Name is Mandatory </mat-error>
+
+                      } @else if(registerForm.controls.name.errors?.pattern){
+                      <mat-error> Invalid Name</mat-error>
+                      }
+                    </mat-form-field>
+                  </div>
+                  <div class="formgroup">
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>Email:</mat-label>
+                      <input type="text" matInput formControlName="email" />
+                      @if(registerForm.controls.email.errors?.required){
+                      <mat-error> Email is Mandatory </mat-error>
+
+                      } @else if (registerForm.controls.email.errors?.pattern){
+                      <mat-error> Invalid Email</mat-error>
+                      }
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group">
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>Password:</mat-label>
+                      <input
+                        type="password"
+                        matInput
+                        formControlName="password"
+                      />
+                      @if(registerForm.controls.password.errors?.required){
+                      <mat-error> Password is Mandatory </mat-error>
+
+                      }
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group">
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>Phone:</mat-label>
+                      <input type="text" matInput formControlName="phone" />
+                      @if(registerForm.controls.phone.errors?.required){
+                      <mat-error> Phone is Mandatory </mat-error>
+
+                      } @else if(registerForm.controls.phone.errors?.pattern){
+                      <mat-error> Invalid PhoneNumber</mat-error>
+                      }
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group">
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>Apartment:</mat-label>
+                      <input type="text" matInput formControlName="apartment" />
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>Street:</mat-label>
+                      <input type="text" matInput formControlName="street" />
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group">
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>City:</mat-label>
+                      <input type="text" matInput formControlName="city" />
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group">
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>State:</mat-label>
+                      <input type="text" matInput formControlName="state" />
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group">
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>Zip:</mat-label>
+                      <input type="text" matInput formControlName="zip" />
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group">
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>Country:</mat-label>
+                      <input type="text" matInput formControlName="country" />
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <button
+                (click)="onRegister()"
+                class="float-end mt-2"
+                mat-stroked-button
+              >
+                Register
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

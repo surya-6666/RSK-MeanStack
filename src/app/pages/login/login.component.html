@@ -1,0 +1,53 @@
+<div class="row h-100">
+  <div
+    class="col-md-6 d-flex align-items-center justify-content-center bg-light h-100"
+  >
+    <img src="../../../assets/banner/loginBanner.png" class="img-fluid" />
+  </div>
+  <div class="col-md-6 d-flex align-items-center justify-content-center">
+    <div class="card w-100 mt-2">
+      <div class="card-header bg-danger text-white text-center">
+        <p class="h3">LoginForm</p>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="loginForm">
+          <div class="row">
+            <div class="form-group">
+              <mat-form-field style="width: 100%" appearance="outline">
+                <mat-label>Email:</mat-label>
+                <input matInput type="text" formControlName="email" />
+                @if(loginForm.controls.email.errors?.required){
+                <mat-error> Email is Mandatory </mat-error>
+
+                } @else if (loginForm.controls.email.errors?.pattern){
+                <mat-error> Invalid Email</mat-error>
+                }
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <mat-form-field style="width: 100%" appearance="outline">
+                <mat-label>Password:</mat-label>
+                <input type="password" matInput formControlName="password" />
+                @if(loginForm.controls.password.errors?.required){
+                <mat-error> Password is Mandatory </mat-error>
+
+                }
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+        <a routerLink="/register" class="text-decoration-none text-block"
+          >NewUser?</a
+        >
+        <button
+          (click)="onLogin()"
+          mat-stroked-button
+          color="primary"
+          class="float-end mt-2"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
